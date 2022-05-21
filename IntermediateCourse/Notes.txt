@@ -1,0 +1,59 @@
+﻿1. Class
+is a building block of an application.
+UML - general-purpose, developmental, modelling language
+
+- 3 parts of class :
+Name of class
+Data - represented by fields
+Behaviour - represented by function / methods
+
+- We don't declare fields public
+
+- Members
+Instance members - only accessible to instances
+Static members - only accessible to classes
+static is used represent concepts that are singleton
+
+- Declaring static
+add static after access modifier.
+
+- Constructor
+is a method
+called when instance is created
+to put an object in an early state.
+has same name as class name.
+doesn't have return type.
+Overloading : same name methods, with different parms taking signature.
+Executing other constructor : public Customer(int id) : this() {}
+
+- Object Initializers
+Initializing without constructors
+var p = new Person { fName = "Aman", lName = "Kumar" }
+Only use constructors when some state is essential for class usability.
+
+- Methods
+Signature of Methods : Name of method, Type and number of parameters.
+Method overloading : same method name, but different signatures.
+Params modifier : passing varying no of parameters,
+    public void func(params int[] arrayList)
+Ref modifier : when we want reference to be passed instead of value, so editing of variable in function will result into modification of passed value outside function.
+    public void func(ref int a) {}
+    func(ref b);
+Out modifier : similar to ref, but requires setting/change of value in the function.
+
+- Fields
+Initialization : fields independent on input can be initialized outside constructor in field declaration.
+Read-only fields : fields can only be initialized/declared in constructor or field declaration. public readonly List<> list = new List<>();
+
+- Access modifiers
+Public, Private, Protected, Internal, Protected Internal
+OOP - Enapsulation / Information hiding, Inheritance, Polymorphism
+Encapsulation :
+Define fields as private
+Provide getters/setters methods as public.
+private fields should be named with camel case and prefix with _.
+-------------------------------
+Status : 
+Section 1 : Classes : vid 6 completed
+
+

@@ -10,7 +10,7 @@ namespace IntermediateCourse
     {
         public int Id;
         public string Name;
-        public List<Order> Orders;
+        public readonly List<Order> Orders;
 
         public Customer()
         {
@@ -21,13 +21,12 @@ namespace IntermediateCourse
             : this()
         {
             this.Id = id;
+            Orders = new List<Order>();
         }
 
-        public Customer(int id, string name)
-            : this(id)
+        public void Promote()
         {
-            this.Id = id;
-            this.Name = name;
+            Orders = new List<Order>();
         }
     }
 }

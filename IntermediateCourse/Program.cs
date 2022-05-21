@@ -10,20 +10,9 @@ namespace IntermediateCourse
     {
         static void Main(string[] args)
         {
-            try
-            {
-                var num = int.Parse("abc");
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Conversion failed.");
-            }
-            int number;
-            var result = int.TryParse("abc", out number);
-            if (result)
-                Console.WriteLine(number);
-            else
-                Console.WriteLine("Conversion failed.");
+            var customer = new Customer();
+
+            customer.Promote();
         }
 
         static void UseParams()
