@@ -60,6 +60,8 @@
     <Compile Include="Point.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UpCastingDownCasting\Shape.cs" />
+    <Compile Include="UpCastingDownCasting\Text.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using IntermediateCourse.Inheritance;
-using IntermediateCourse.Composition;
-using Amazon;
-using IntermediateCourse.Constructors;
+using IntermediateCourse.UpCastingDownCasting;
+using System.IO;
 
 namespace IntermediateCourse
 {
@@ -14,7 +8,10 @@ namespace IntermediateCourse
     {
         static void Main(string[] args)
         {
-            var car = new Car("XYZ123");
+            //StreamReader reader = new StreamReader(new MemoryStream());
+
+
+            //var car = new Car("XYZ123");
 
 
             //var dbMigrator = new DbMigrator(new Logger());

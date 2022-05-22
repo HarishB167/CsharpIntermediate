@@ -146,9 +146,24 @@ Calling base class constructor :
 public ChildClass(string var) 
     : base(var)
 {}
+
+- Upcasting / Downcasting
+Upcasting :
+Derived class to base class
+Implicit -> Parent obj = childObj;
+Downcasting :
+Base class to derived class
+Explicit -> Child newChildObj = (Parent) parentObj;
+can throw InvalidCastException
+using as keyword -> Chid newChildObj = parentObj as Child;
+if not able to convert sets newChildObj to null;
+is keyword :
+for checking tyep of object
+if (obj is Car) {}
+as and is keywords
 -------------------------------
 Status : 
-Section 3 : Inheritance : vid 1 access modifiers completed.
+Section 3 : Inheritance : vid 3 completed.
 
 
 
