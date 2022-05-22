@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AF32B6A2-E814-43F5-85A4-CC15B5B16D9D}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{CF0BD943-27DA-4B00-AA5C-20C286BBEB28}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IntermediateCourse</RootNamespace>
-    <AssemblyName>IntermediateCourse</AssemblyName>
+    <RootNamespace>Amazon</RootNamespace>
+    <AssemblyName>Amazon</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,36 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Calculator.cs" />
-    <Compile Include="Composition\DbMigrator.cs" />
-    <Compile Include="Composition\Installer.cs" />
-    <Compile Include="Composition\Logger.cs" />
-    <Compile Include="Customer.cs" />
-    <Compile Include="ExerciseStackOverFlowPost.cs" />
-    <Compile Include="ExerciseStopwatch.cs" />
-    <Compile Include="HttpCookie.cs" />
-    <Compile Include="Inheritance\PresentationObject.cs" />
-    <Compile Include="Inheritance\Text.cs" />
-    <Compile Include="Order.cs" />
-    <Compile Include="Person.cs" />
-    <Compile Include="Point.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Customer2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Notes.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="AccessModifiers\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Amazon\Amazon.csproj">
-      <Project>{cf0bd943-27da-4b00-aa5c-20c286bbeb28}</Project>
-      <Name>Amazon</Name>
-    </ProjectReference>
+    <Compile Include="RateCalculator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

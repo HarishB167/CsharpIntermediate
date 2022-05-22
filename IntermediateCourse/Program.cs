@@ -5,23 +5,25 @@ using System.Text;
 using System.Threading.Tasks;
 using IntermediateCourse.Inheritance;
 using IntermediateCourse.Composition;
+using Amazon;
 
 namespace IntermediateCourse
 {
-
-
+    
     class Program
     {
         static void Main(string[] args)
         {
-            var dbMigrator = new DbMigrator(new Logger());
+            var customer = new Customer2();
 
-            var logger = new Logger();
-            var installer = new Installer(logger);
+            //var dbMigrator = new DbMigrator(new Logger());
 
-            dbMigrator.Migrate();
+            //var logger = new Logger();
+            //var installer = new Installer(logger);
 
-            installer.Install();
+            //dbMigrator.Migrate();
+
+            //installer.Install();
 
             //var text = new Text();
             //text.Width = 100;
