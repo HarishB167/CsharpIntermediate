@@ -173,9 +173,32 @@ converting value types instances to object (reference) types
 object obj = 10;
 Unboxing :
 int number = (int)obj;
+
+
+4. Polymorphism
+- Method overriding
+Virtual / override keywords
+modifying inherited method's implementation.
+virtual keyword: for making method overridable in parent
+public virtual void Draw() {}
+in child -> public override void Draw() {}
+
+- Abstract classes and Members
+Abstract modifier (on classes and members) :
+Indicates missing implementation
+Rules :
+Abstract member do not include implementation.
+public abstract void Draw();
+Containing class should be abstract if any member is abstract.
+public abstract class Parent {}
+Derived class must implement all abstract members.
+Abstract class cannot be instantiated.
+Why :
+provide common behaviour
+forcing to follow design.
 -------------------------------
 Status : 
-Section 3 : Inheritance : vid 4 completed.
+Section 3 : Polymorphism : vid 2 completed
 
 
 
