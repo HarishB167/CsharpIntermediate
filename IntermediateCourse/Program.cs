@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using IntermediateCourse.Inheritance;
+using IntermediateCourse.Composition;
 
 namespace IntermediateCourse
 {
@@ -12,8 +14,22 @@ namespace IntermediateCourse
     {
         static void Main(string[] args)
         {
-            var post = new ExerciseStackOverFlowPost();
-            post.run();
+            var dbMigrator = new DbMigrator(new Logger());
+
+            var logger = new Logger();
+            var installer = new Installer(logger);
+
+            dbMigrator.Migrate();
+
+            installer.Install();
+
+            //var text = new Text();
+            //text.Width = 100;
+            //text.Copy();
+
+            //var post = new ExerciseStackOverFlowPost();
+            //post.run();
+
             //var cookie = new HttpCookie();
             //cookie["name"] = "Harish";
             //Console.WriteLine(cookie["name"]);

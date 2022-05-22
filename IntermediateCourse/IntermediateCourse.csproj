@@ -44,10 +44,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Calculator.cs" />
+    <Compile Include="Composition\DbMigrator.cs" />
+    <Compile Include="Composition\Installer.cs" />
+    <Compile Include="Composition\Logger.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="ExerciseStackOverFlowPost.cs" />
     <Compile Include="ExerciseStopwatch.cs" />
     <Compile Include="HttpCookie.cs" />
+    <Compile Include="Inheritance\PresentationObject.cs" />
+    <Compile Include="Inheritance\Text.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Point.cs" />

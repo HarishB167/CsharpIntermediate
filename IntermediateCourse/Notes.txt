@@ -75,9 +75,58 @@ public string this[string key]
     get { ... logic for getting value from private list }
     set { ... logic for setting value in private list }
 }
+
+
+2. Association Between classes
+- Class coupling
+Measure of how interconnected classes and subsystem are.
+Tightly coupled, loosely coupled
+Types of relationships
+Inheritance, Composition
+
+- Inheritance
+What is inheritance :
+Inheriting code from another class.
+Is-A relationship (A Car is a Vehicle)
+benefits :
+code re-use
+polymorphic behaviour
+UML notation :
+Syntax :
+public class ChildClass : ParentClass {}
+In C# class can have only one parent.
+
+- Composition
+What : 
+Allows one class to contain another class.
+Has-a relationship (Car has an Engine)
+Benefits :
+Code re-use
+Flexibility
+loose-coupling
+Syntax :
+public class Class
+{
+   private RelatedClass _related;
+   public Class(RelatedClass related)
+   {
+      _related = related;
+   }
+}
+
+- Favour Composition over Inheritance
+Problems with Inheritance :
+Easily abused by amateurs
+Large hierarchies
+Fragility
+Tightly coupling
+Benefits of Composition :
+Great flexibility
+Loose coupling
+
 -------------------------------
 Status : 
-Section 1 : Classes : vid 8 indexers completed
+Section 2 : Association b/w classes : completed
 
 
 
