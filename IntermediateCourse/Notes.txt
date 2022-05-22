@@ -66,9 +66,18 @@ Auto-impelemented properties :
 public DateTime Birthdate { get; set; }
 Making property unsettable - don't declare set method.
 Settable only once - make { get; private set; }, and set using constructor.
+
+- Indexers
+What - accessing elements in a class that represents list of values. 
+How - similar to properties as
+public string this[string key]
+{
+    get { ... logic for getting value from private list }
+    set { ... logic for setting value in private list }
+}
 -------------------------------
 Status : 
-Section 1 : Classes : vid 7 properties completed
+Section 1 : Classes : vid 8 indexers completed
 
 
 
