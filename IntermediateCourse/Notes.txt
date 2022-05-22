@@ -161,9 +161,21 @@ is keyword :
 for checking tyep of object
 if (obj is Car) {}
 as and is keywords
+
+- Boxing / Unboxing
+Value Types and Reference types
+Value types - smaller memory allocated, in stack
+Reference types - larger memory allocated, in heap
+Boxing and Unboxing
+Have a performance penalty
+Boxing : 
+converting value types instances to object (reference) types
+object obj = 10;
+Unboxing :
+int number = (int)obj;
 -------------------------------
 Status : 
-Section 3 : Inheritance : vid 3 completed.
+Section 3 : Inheritance : vid 4 completed.
 
 
 
