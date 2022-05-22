@@ -52,8 +52,23 @@ Encapsulation :
 Define fields as private
 Provide getters/setters methods as public.
 private fields should be named with camel case and prefix with _.
+
+- Properties
+what - it is a class member, encapsulates getter/setter for field access.
+why - to create getter/setter with less code.
+how - 
+public DateTime Birthdate
+{
+    get { return _birthdate; }
+    set { _birthdate = value; }
+} 
+Auto-impelemented properties :
+public DateTime Birthdate { get; set; }
+Making property unsettable - don't declare set method.
+Settable only once - make { get; private set; }, and set using constructor.
 -------------------------------
 Status : 
-Section 1 : Classes : vid 6 completed
+Section 1 : Classes : vid 7 properties completed
+
 
 

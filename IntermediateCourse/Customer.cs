@@ -25,8 +25,7 @@ namespace IntermediateCourse
         }
 
         public void Promote()
-        {
-            Orders = new List<Order>();
+        { 
         }
     }
 }
