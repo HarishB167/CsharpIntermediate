@@ -12,9 +12,11 @@ namespace IntermediateCourse
     {
         static void Main(string[] args)
         {
-            var cookie = new HttpCookie();
-            cookie["name"] = "Harish";
-            Console.WriteLine(cookie["name"]);
+            var post = new ExerciseStackOverFlowPost();
+            post.run();
+            //var cookie = new HttpCookie();
+            //cookie["name"] = "Harish";
+            //Console.WriteLine(cookie["name"]);
         }
 
         static void UseParams()
