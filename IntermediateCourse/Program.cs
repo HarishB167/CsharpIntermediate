@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 using IntermediateCourse.Inheritance;
 using IntermediateCourse.Composition;
 using Amazon;
+using IntermediateCourse.Constructors;
 
 namespace IntermediateCourse
 {
-    
     class Program
     {
         static void Main(string[] args)
         {
-            var customer = new Customer2();
+            var car = new Car("XYZ123");
+
 
             //var dbMigrator = new DbMigrator(new Logger());
 

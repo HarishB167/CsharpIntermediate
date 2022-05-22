@@ -47,6 +47,8 @@
     <Compile Include="Composition\DbMigrator.cs" />
     <Compile Include="Composition\Installer.cs" />
     <Compile Include="Composition\Logger.cs" />
+    <Compile Include="Constructors\Car.cs" />
+    <Compile Include="Constructors\Vehicle.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="ExerciseStackOverFlowPost.cs" />
     <Compile Include="ExerciseStopwatch.cs" />

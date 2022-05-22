@@ -124,9 +124,31 @@ Benefits of Composition :
 Great flexibility
 Loose coupling
 
+3. Inheritance
+- Access modifiers
+Why :
+Black box metaphor
+C# access modifiers
+public, private,
+protected : accessible from the class and its derived(child) classes.
+internal : accessible from the same assembly.
+protected internal : accessible from same assebmly or derived classes.
+Adding a assembly :
+Right click Solution > Add > New Project > Class library -> give name
+Adding reference to new assembly :
+Right click References > Add ref > Project/Solution > select project to refer
+then add "using <projectname>"
+
+- Constructors and Inheritance
+Base class constructors are always executed first.
+Base class constructors are not inherited.
+Calling base class constructor :
+public ChildClass(string var) 
+    : base(var)
+{}
 -------------------------------
 Status : 
-Section 2 : Association b/w classes : completed
+Section 3 : Inheritance : vid 1 access modifiers completed.
 
 
 
