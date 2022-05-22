@@ -8,6 +8,9 @@ namespace IntermediateCourse
     {
         static void Main(string[] args)
         {
+            var exercise = new ExerciseInheritance();
+            exercise.run();
+
             //StreamReader reader = new StreamReader(new MemoryStream());
 
 
