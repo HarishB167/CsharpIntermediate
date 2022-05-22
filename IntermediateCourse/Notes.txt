@@ -196,9 +196,16 @@ Abstract class cannot be instantiated.
 Why :
 provide common behaviour
 forcing to follow design.
+
+- Sealed Classes and Members
+sealed modifier on class : Prevents derivation of classes
+sealed modifier on method : 
+Prevents overriding of methods
+can only be applied to method having override modifier -> public sealed override void Draw() {}
+Sealed classes are slightly faster due to run-time optimizations.
 -------------------------------
 Status : 
-Section 3 : Polymorphism : vid 2 completed
+Section 3 : Polymorphism : vid 3 completed
 
 
 
