@@ -193,6 +193,8 @@ Containing class should be abstract if any member is abstract.
 public abstract class Parent {}
 Derived class must implement all abstract members.
 Abstract class cannot be instantiated.
+In a derived class, we need to override all abstract members of
+the base class, otherwise that derived class is going to be abstract too.
 Why :
 provide common behaviour
 forcing to follow design.

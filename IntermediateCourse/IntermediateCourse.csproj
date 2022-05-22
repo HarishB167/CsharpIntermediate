@@ -51,6 +51,7 @@
     <Compile Include="Constructors\Vehicle.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="ExerciseInheritance.cs" />
+    <Compile Include="ExercisePolymorphism.cs" />
     <Compile Include="ExerciseStackOverFlowPost.cs" />
     <Compile Include="ExerciseStopwatch.cs" />
     <Compile Include="HttpCookie.cs" />

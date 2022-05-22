@@ -8,7 +8,7 @@ namespace IntermediateCourse
     {
         static void Main(string[] args)
         {
-            var exercise = new ExerciseInheritance();
+            var exercise = new ExercisePolymorphism();
             exercise.run();
 
             //StreamReader reader = new StreamReader(new MemoryStream());
