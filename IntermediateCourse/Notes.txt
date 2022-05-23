@@ -205,9 +205,43 @@ sealed modifier on method :
 Prevents overriding of methods
 can only be applied to method having override modifier -> public sealed override void Draw() {}
 Sealed classes are slightly faster due to run-time optimizations.
+
+
+4. Interfaces
+- What is an Interface
+Syntax is similar to class, but fundamentally different.
+to build loosely coupled applications.
+Defines role / jobs of classes which implement it.
+Declare and Implement interfaces :
+public interface IClassName { int Method(); }
+Interface name start with I.
+methods don't have body.
+members don't have access modifiers.
+
+- Interfaces and Testability
+Adding unit test project :
+Right click solution > Add > New project > Visual C#/Windows/Test > UnitTest, then give name <Project>.UnitTest
+Unitesting requires isolation.
+Implementing interfaces :- public class NewClass : InterfaceClass {}
+Asserting exception :
+Decorate func with - [ExpectedException(typeof(<ExceptionType>))]
+Testing :
+Isolate class using interface.
+Arrange some pre-conditions.
+Act on a method.
+Doing assertions.
+
+Running Test : Ctrl + R, A
+
+- Extensibility
+Dependency injection - specifying dependency in constructor.
+using() code block - same as with in python
+using(var stream = new StreamWriter() ) {<codeBlock>}
+Open close principle (OCP) :
+Software entities should be open for extension, but closed for modification.
 -------------------------------
 Status : 
-Section 3 : Polymorphism : vid 3 completed
+Section 4 : Interfaces : Extensibility completed
 
 
 
