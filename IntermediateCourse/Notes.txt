@@ -239,9 +239,16 @@ using() code block - same as with in python
 using(var stream = new StreamWriter() ) {<codeBlock>}
 Open close principle (OCP) :
 Software entities should be open for extension, but closed for modification.
+
+- Interfaces NOT for Multiple Inheritance
+
+- Interfaces and Polymorphism
+A method is implemented differently in different implementations of interface.
+So polymorphism appears.
+
 -------------------------------
 Status : 
-Section 4 : Interfaces : Extensibility completed
+Section 4 : Interfaces : vid 5 completed
 
 
 
