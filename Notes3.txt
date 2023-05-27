@@ -1,0 +1,323 @@
+1. Generics
+For  code reusability and removing performance penality.
+using System.Collections.Generic
+
+- Creating generic 
+public class GenericList<T> {}
+
+- Multiple generic params :
+dictionary -> public class GenDictionary<TKey, TValue> {}
+
+- Generic method in non-generic class :
+public T Max<T>(T a, T b) { return someTVal; }
+
+- Constraints :
+on method -> public T Max<T>(T a, Tb) where T : IComparable { ... }
+on class -> public class SomeClass<T> where T : IComparable {}
+
+- 5 Types of Constraints :
+IComparable : interface constraint
+SampleClass : T should be SampleClass class or it's subclasses
+struct : T should be value type
+class : T should be reference type
+new() : T is an object with default constructor
+
+- default() operator : for getting default value for T in generics.
+
+
+2. Delegates
+Object -> knows how to call a method or group of methods.
+A reference to a function.
+
+Why : Designing extensible and flexible applicaitons (frameworks)
+
+- Define delegate
+In class,
+if 'void func(string var)' is signature of function.
+then -> public void DelegeteName(string var1);
+
+- Using delegate
+In function where all methods will be used
+public void Process(..., DelegateName givenDelgate)
+{
+    givenDelegate(var);
+}
+In main function :
+SomeClass.DelegateName handler = someMethod;
+handler += someOtherMethod;
+Process(..., handler);
+
+- Info
+delegates created using delegate keyword are classes derived from System.MulticastDelegate.
+MulticastDelegate is derived from System.Delegate class.
+Delegate class has 2 public properties :
+Method -> method delegate is pointing to
+Target -> Class that hold that method
+In non-public members :
+_invocationList -> contains list of methods given to delegate.
+
+- Delegates coming with .NET
+System.Action and System.Func
+Action<>  :
+can take upto 16 params
+Func<> :
+it points to method that returns value.
+can take upto 16 params
+
+- Use Delegates over Interface
+Eventing design pattern is used.
+Caller don't need access to methods/properties of implementor.
+
+
+3. Lambda expression
+- What
+Anonymous method
+No access modifier
+No name
+No return statement
+
+- Syntax : args => expression (args goes to expression)
+no args : () => expression
+1 arg : x => expression
+many args : (x,y,z) => expression
+
+- Scope :
+Variables of method where lambda expression is defined are accessible by lambda expression.
+
+- Assigning lambda expression to delegate
+Func<int, int> square = number => number * number;
+
+- Predicate :
+is a Delegate which points to a method
+which gets a item,
+returns boolean based on condition.
+
+- Find methods on generic lists : uses predicate functions
+
+
+4. Events and Delegates
+Communication mechanism b/w objects.
+Building loosely coupled applications.
+Helps extending applications.
+
+Publisher / event sender and Subscriber / event receiver
+
+- Publisher notifying subscribers
+Send message to subscriber
+Invoking method in a subscriber
+
+- Aggrement / Contract b/w publisher and subscriber using Delegates
+Method with a specific signature in subscriber.
+public void <MethodName>(object source, EventArgs e) {}
+called as event handler.
+Publisher don't know about existence of subscribers, it knows only about event handler methods (using delegates).
+
+- Making a publisher
+1) Define a delegate
+public delegate void <EventName>EventHandler(object source, EventArgs args);
+2) Define an event based on that delegate.
+public event <EventName>EventHandler <EventName>;
+3) Raise the event
+defining method
+protected virtual void On<EventName>()
+{
+    if (<EventName> != null) <EventName>(this, EventArgs.Empty);
+}
+using to raise event in any method : On<EventName>();
+
+- Subscribing to event
+In subscriber create method of delegate's signature as
+public void On<EventName>(object source, EventArgs e)
+{...code to execute...}
+In main method :
+publisherInstance.<EventName> += subscriberInstance.On<EventName>;
+
+- Custom EventArgs
+Create new class <Name>EventArgs which inherits EventArgs class
+then add custom fields.
+In publisher change same at :
+delegate declaration
+raise event method -> accept any params, pass it as 
+<EventName>(this, new <Name>EventArgs() { Var = arg, ... })
+During calling of this pass the params -> On<EventName>(vars,...);
+In subscribers -> change EventArgs to <Name>EventArgs.
+
+- Using EventHandler delegate class or generic from .NET
+Don't need to declare delegates in publisher
+2 forms
+EventHandler -> without args
+EventHandler<TEventArgs>
+Creating event :
+public event EventHandler<MyEventArgs> MyEventName;
+Here EventHandler<MyEventArgs> is equivalent to
+public delegate void AnotherDelegateEventHandler(object source, MyEventArgs args);
+
+
+5. Extension Methods
+Allows us to add methods to an existing class without
+changing its source code,
+creating child class.
+(e.g. - for sealed classes)
+Create static class named <ClassToExtend>Extensions
+Inside it create static methods as
+public static <ReturnType> <MethodName>(this <ClassToExtend> varName, ...) {}
+
+Class storing extension methods should be in scope (same namespace) or import it.
+
+Trick : name the namespace of this static class containing extension methods same as namespaces in which main class is defined.
+
+Trouble of extension methods : instance method are prefered from extension methods. So, update having instance method can prevent extension method.
+
+Suggestion : Change source code of original class, otherwise create child from this class or lastly use extension methods.
+
+
+6. LINQ
+- What
+Language INtegrated Query
+Capability to query objects natively
+
+- Can query, LINQ
+1) to Objects : Obj in memory, eg collections
+2) to Entities : Databases
+3) to XML : XML
+4) to Data Sets : ADO.NET Data Sets
+
+Linq Extension Methods :
+Where - for filtering
+OrderBy - sorting collections
+Select - projects each element of a sequence into a new form.
+Object conversion, Selecting a particular field of object.
+Single - Returns 1 matched element otherwise throws exception.
+SingleOrDefault - same as Single but otherwise returns default value for type.
+First - get first object from collection with optional filter.
+FirstOrDefault, Last, LastOrDefault
+(For Pagination :-)
+Skip - skipps given no of elements and returns remaining
+Take - returns specified no of elements
+(For aggregating :-)
+Count, Max, Min, Sum, Average
+
+Method chaining : Where(...).OrderBy(...);
+
+Linq Query Operators :
+Always starts from 'from' and ends at 'select'
+var books = 
+          from b in books
+          where b.Price < 10
+          orderby b.Title
+          select b;
+
+
+7. Nullable Types
+Value types cannot be null.
+For making value types like DateTime struct nullable.
+Using Nullable : a generic structure from System namespace
+a) Nullabe<DateTime> date = null;
+b) DateTime? date = null;
+
+- Members of nullable type
+GetValueOrDefault
+HasValue
+Value
+
+- Null Coalescing Operator
+DateTime date3 = date ?? DateTime.Today;
+
+
+8. Dynamics
+- Statically-typed languages : C#, Java
+- Dynamically-typed languages : Ruby, Javascript, Python
+- Type resolution (members, properties, methods)
+Static lang -> at compile-time
+Dynamic lang -> at run-time
+
+- Benefits
+Static lang -> early feedback (compile-time)
+Dynamic lang -> easier and faster to code
+
+- C# History
+Started as static language.
+.NET 4 added dynamic capability, to improve interoperability with
+COM (writing office applications)
+and Dynamic languages (IronPython).
+
+- Reflection
+it is used when dynamic is not used.
+Inspect metadata about a type, and access properties and methods.
+
+- Using dynamics
+dynamic keyword
+dynamic obj = "value";
+obj.SomeMethod();
+In .Net v4 DLR (dynamic language runtime) was added over CLR.
+When we use dynamic value in expression, 
+then expression becomes dynamic.
+
+- Casting : is implicit.
+
+
+9. Exception Handling
+Exception is class.
+Stack Trace : sequence of called method till exception.
+Guideline : should have global exception handler in app.
+
+- Exception object properties
+Message, StackTrace, Data, HelpLink,
+Source - Name of assembly/DLL file.
+TargetSite - Method causing exception
+InnerException - exception stored/wrapped in another exception.
+
+- Multiple catch blocks : most specific to most generic.
+
+- finally block : 
+It runs irrespective of exception.
+Unmanaged resources by CLR : 
+file handles, database connections, network connections, 
+graphic handles.
+For cleanup of unmanaged resources.
+Class using unmanaged resources should implement IDisposable.
+
+- Custom Exceptions
+create new class <My>Exception extending Exception
+create constructor <My>Exception(string message, Exception innerException)
+ : base(message, innerException) {}
+
+
+10. Async Await
+Improves responsiveness
+await keyword can only be used in async method.
+Examples - Media Player, Web browser
+When to use - In blocking operations
+Accessing web, working with files and databases, Images
+
+- How
+Traditional approches : multi-threading, callbacks.
+New approach in NET4.5 : Task based - Async Await
+
+- Writing Async method
+Decorated with async keyword -> public async
+Return type is Task object -> Task for void and Task<TYPE> for returning
+Naming method -> MyMethodAsync
+Call other async method -> prepend await to other async method call, it makes thread to return control to our method caller.
+
+
+---- Next Step ----
+Fundamentals :
+Algorithms,
+Data Structures,
+Object oriented programming,
+Clean coding,
+Refactoring
+
+Books :
+Applying UML and patterns - Craig Larman
+Agile principles, patterns and practices in C# - Robert C. Martin
+Clean code - Robert C. Martin
+The art of Unit Testing - Roy Osherove
+Blogs :
+http://odetocode.com
+http://weblogs.asp.net/scottgu
+http://www.hanselman.com/blog/
+
+---------------------------------
+Status : Vid 10 - Async Await - completed
