@@ -1,0 +1,250 @@
+1. Class
+is a building block of an application.
+UML - general-purpose, developmental, modelling language
+
+- 3 parts of class :
+Name of class
+Data - represented by fields
+Behaviour - represented by function / methods
+
+- We don't declare fields public
+
+- Members
+Instance members - only accessible to instances
+Static members - only accessible to classes
+static is used represent concepts that are singleton
+
+- Declaring static
+add static after access modifier.
+
+- Constructor
+is a method
+called when instance is created
+to put an object in an early state.
+has same name as class name.
+doesn't have return type.
+Overloading : same name methods, with different parms taking signature.
+Executing other constructor : public Customer(int id) : this() {}
+
+- Object Initializers
+Initializing without constructors
+var p = new Person { fName = "Aman", lName = "Kumar" }
+Only use constructors when some state is essential for class usability.
+
+- Methods
+Signature of Methods : Name of method, Type and number of parameters.
+Method overloading : same method name, but different signatures.
+Params modifier : passing varying no of parameters,
+    public void func(params int[] arrayList)
+Ref modifier : when we want reference to be passed instead of value, so editing of variable in function will result into modification of passed value outside function.
+    public void func(ref int a) {}
+    func(ref b);
+Out modifier : similar to ref, but requires setting/change of value in the function.
+
+- Fields
+Initialization : fields independent on input can be initialized outside constructor in field declaration.
+Read-only fields : fields can only be initialized/declared in constructor or field declaration. public readonly List<> list = new List<>();
+
+- Access modifiers
+Public, Private, Protected, Internal, Protected Internal
+OOP - Enapsulation / Information hiding, Inheritance, Polymorphism
+Encapsulation :
+Define fields as private
+Provide getters/setters methods as public.
+private fields should be named with camel case and prefix with _.
+
+- Properties
+what - it is a class member, encapsulates getter/setter for field access.
+why - to create getter/setter with less code.
+how - 
+public DateTime Birthdate
+{
+    get { return _birthdate; }
+    set { _birthdate = value; }
+} 
+Auto-impelemented properties :
+public DateTime Birthdate { get; set; }
+Making property unsettable - don't declare set method.
+Settable only once - make { get; private set; }, and set using constructor.
+
+- Indexers
+What - accessing elements in a class that represents list of values. 
+How - similar to properties as
+public string this[string key]
+{
+    get { ... logic for getting value from private list }
+    set { ... logic for setting value in private list }
+}
+
+
+2. Association Between classes
+- Class coupling
+Measure of how interconnected classes and subsystem are.
+Tightly coupled, loosely coupled
+Types of relationships
+Inheritance, Composition
+
+- Inheritance
+What is inheritance :
+Inheriting code from another class.
+Is-A relationship (A Car is a Vehicle)
+benefits :
+code re-use
+polymorphic behaviour
+UML notation :
+Syntax :
+public class ChildClass : ParentClass {}
+In C# class can have only one parent.
+
+- Composition
+What : 
+Allows one class to contain another class.
+Has-a relationship (Car has an Engine)
+Benefits :
+Code re-use
+Flexibility
+loose-coupling
+Syntax :
+public class Class
+{
+   private RelatedClass _related;
+   public Class(RelatedClass related)
+   {
+      _related = related;
+   }
+}
+
+- Favour Composition over Inheritance
+Problems with Inheritance :
+Easily abused by amateurs
+Large hierarchies
+Fragility
+Tightly coupling
+Benefits of Composition :
+Great flexibility
+Loose coupling
+
+3. Inheritance
+- Access modifiers
+Why :
+Black box metaphor
+C# access modifiers
+public, private,
+protected : accessible from the class and its derived(child) classes.
+internal : accessible from the same assembly.
+protected internal : accessible from same assebmly or derived classes.
+Adding a assembly :
+Right click Solution > Add > New Project > Class library -> give name
+Adding reference to new assembly :
+Right click References > Add ref > Project/Solution > select project to refer
+then add "using <projectname>"
+
+- Constructors and Inheritance
+Base class constructors are always executed first.
+Base class constructors are not inherited.
+Calling base class constructor :
+public ChildClass(string var) 
+    : base(var)
+{}
+
+- Upcasting / Downcasting
+Upcasting :
+Derived class to base class
+Implicit -> Parent obj = childObj;
+Downcasting :
+Base class to derived class
+Explicit -> Child newChildObj = (Parent) parentObj;
+can throw InvalidCastException
+using as keyword -> Chid newChildObj = parentObj as Child;
+if not able to convert sets newChildObj to null;
+is keyword :
+for checking type of object
+if (obj is Car) {}
+as and is keywords
+
+- Boxing / Unboxing
+Value Types and Reference types
+Value types - smaller memory allocated, in stack
+Reference types - larger memory allocated, in heap
+Boxing and Unboxing
+Have a performance penalty
+Boxing : 
+converting value types instances to object (reference) types
+object obj = 10;
+Unboxing :
+int number = (int)obj;
+
+
+4. Polymorphism
+- Method overriding
+Virtual / override keywords
+modifying inherited method's implementation.
+virtual keyword: for making method overridable in parent
+public virtual void Draw() {}
+in child -> public override void Draw() {}
+
+- Abstract classes and Members
+Abstract modifier (on classes and members) :
+Indicates missing implementation
+Rules :
+Abstract member do not include implementation.
+public abstract void Draw();
+Containing class should be abstract if any member is abstract.
+public abstract class Parent {}
+Derived class must implement all abstract members.
+Abstract class cannot be instantiated.
+In a derived class, we need to override all abstract members of the base class, otherwise that derived class is going to be abstract too.
+Why :
+provide common behaviour.
+forcing to follow design.
+
+- Sealed Classes and Members
+sealed modifier on class : Prevents derivation of classes
+sealed modifier on method : 
+Prevents overriding of methods
+can only be applied to method having override modifier -> public sealed override void Draw() {}
+Sealed classes are slightly faster due to run-time optimizations.
+
+
+4. Interfaces
+- What is an Interface
+Syntax is similar to class, but fundamentally different.
+to build loosely coupled applications.
+Defines role / jobs of classes which implement it.
+Declare and Implement interfaces :
+public interface IClassName { int Method(); }
+Interface name start with I.
+methods don't have body.
+members don't have access modifiers.
+
+- Interfaces and Testability
+Adding unit test project :
+Right click solution > Add > New project > Visual C#/Windows/Test > UnitTest, then give name <Project>.UnitTest
+Unitesting requires isolation.
+Implementing interfaces :- public class NewClass : InterfaceClass {}
+Asserting exception :
+Decorate func with - [ExpectedException(typeof(<ExceptionType>))]
+Testing :
+Isolate class using interface.
+Arrange some pre-conditions.
+Act on a method.
+Doing assertions.
+
+Running Test : Ctrl + R, A
+
+- Extensibility
+Dependency injection - specifying dependency in constructor.
+using() code block - same as with in python
+using(var stream = new StreamWriter() ) {<codeBlock>}
+Open close principle (OCP) :
+Software entities should be open for extension, but closed for modification.
+
+- Interfaces NOT for Multiple Inheritance
+
+- Interfaces and Polymorphism
+A method is implemented differently in different implementations of interface.
+So polymorphism appears.
+
+-------------------------------
+Status : 
+Section 4 : Interfaces : vid 5 completed
