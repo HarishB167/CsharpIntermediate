@@ -31,6 +31,11 @@ System.Collections.Generic - for working with list and collection
 System.Linq - Used to work with data
 System.Text - to work with text and coding.
 System.Threading.Tasks - to build multithreaded apps.
+* In console application :
+Program class in App's namespace is created having Main() method
+* Console class is used to read/write data to consolde.
+Defined in System namespace
+Console.WriteLine("txt");
 
 2. Primitive Types
 - Variables and Constants
