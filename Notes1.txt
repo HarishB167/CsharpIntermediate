@@ -125,6 +125,7 @@ attr1 = val1, attr2 = val2
 }
 casting int to enum -> (EnumName)var;
 parsing string to enum -> (EnumName)Enum.Parse(typeof(EnumName), strVar);
+Converting to string -> enumVar.ToString()
 
 - Reference Types and Value types
 Value Types (Structs) :
