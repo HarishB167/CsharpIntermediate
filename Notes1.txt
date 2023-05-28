@@ -36,6 +36,7 @@ Program class in App's namespace is created having Main() method
 * Console class is used to read/write data to consolde.
 Defined in System namespace
 Console.WriteLine("txt");
+Console.WriteLine("{0} {1}", x, y)
 
 2. Primitive Types
 - Variables and Constants
@@ -44,6 +45,10 @@ Real numbers - float (1.2f), double, decimal (1.2m)
 Character - char
 Boolean - bool
 Non-primitive - String, Array, Enum, Class
+Declaring constant : const float x = 3.14f;
+* Naming convention : 
+Variable - int number;
+Constant - const in Number = 5;
 
 - Overflowing
 byte number = 255;
@@ -55,6 +60,7 @@ checked
     byte number = 255;
     number = number + 1;
 }
+Exception will be thrown on overflow.
 
 - Scope : Part of code where a variable is accessible.
 
