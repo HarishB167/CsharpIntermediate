@@ -168,7 +168,7 @@ Fixed types
 Multidimensional arrays types - Rectangular, Jagged
 Rectangular  -> new int[3, 5, ...]
 Jagged -> var arr = new int[x][ ]; arr[0] = new int[y];
-Methods of arrays
+Static methods of Array
 .IndexOf - getting index
 .Clear(array, startIndex, length) - clears items from array
 .Copy(array1, array2, length) - copying a part of array to another array
@@ -178,12 +178,12 @@ Methods of arrays
 Dynamic types
 var numbers = new List<int>();
 or new List<int>() {1,2,3,4};
-Methods
+Methods of listObj
 Add() - add object to list
 AddRange() - add list/array of objects to list
 Remove() - remove one object
 RemoveAt() - remove at index
-IndexOf() - return index of given object
+IndexOf(item, [startIdx, count]) - return index of given object
 Contains() - list contains given object
 Count - return no of objects in list
 
