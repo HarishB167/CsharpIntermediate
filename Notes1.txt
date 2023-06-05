@@ -228,6 +228,7 @@ Replacing - Replace(oldChar, newChar), Replace(oldString, newString)
 Null checking - String.IsNullOrEmpty(str), String.IsNullOrWhiteSpace(str)
 Split - str.Split(char)
 Converting string to numbers : int.Parse(str), Convert.ToInt32(str)
+when null throws error, when null returns default value
 Converting numbers to string : i.ToString(), i.ToString(format)
 format  -> "C"-currency-"$1234.00", "C0"-currency-"$1234", D-Decimal,
 E-Exponential, F-fixedpoint, X-hexadecimal
@@ -239,7 +240,8 @@ A mutable string
 easy and fast to create/mutable string
 Not for searching like - Index, contains, startswith etc.
 String manipulation methods
-Append(), Insert(), Remove(), Replace(), Clear()
+Append(), AppendLine(), Insert(), Remove(), Replace(), Clear()
+return builder obj, so can be chained : Append().Insert().Remove()
 builder[x] to access individual chars.
 
 - Procedural Programming
