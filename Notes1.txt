@@ -260,7 +260,8 @@ OpenRead - reading using a filestream (only for FileInfo).
 - Directory, DirectoryInfo
 Directory - static methods
 DirectoryInfo - instance methods
-Methods -> CreateDirectory, Delete, Exists, GetFiles(<optional filter>), GetDirectories, Move
+Methods -> CreateDirectory, Delete, Exists, Move, GetFiles(path, [filter]), GetDirectories(path, [filter..]),
+Filter : (".jpg", SearchOption.AllDirectories)
 GetCurrentDirectory - dir of app
 GetLogicalDrives - to get logical drives (C:, D: etc)
 
