@@ -278,7 +278,7 @@ Continue execution.
 Inspect variables using watches window.
 
 Shortcuts -
-F9 - setting breakpoint on line
+F9 - un/setting breakpoint on line
 Ctrl + F5 - run normal
 F5 - run in debug mode
 Shft + F5 - stop debugger
@@ -302,6 +302,7 @@ Debug > windows > call stacks
 Lists functions called till the location of last executed line.
 
 Locals and Auto window
+Debug > windows > Autos/Locals
 Autos - watch window with automatic list of vars
 Locals - watch window with local vars
 -------------------------------
