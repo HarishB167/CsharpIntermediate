@@ -191,23 +191,32 @@ Count - return no of objects in list
 - DateTime
 DateTime is struct defined in System namespace.
 DateTime obj is immutable
-attributes -> Now - current time
-Hour, Minute, Today (for date)
-Adding time using .Add methods and they returns new DateTime obj.
+Static attributes -> 
+Now - current time : Now.Hour, Now.Minute
+Today - current date
+Adding time using .Add<>() methods and they returns new DateTime obj.
+Use -ve number to substract.
 Converting to string
-.ToString(<optional format>), ToLongDateString, ToShortDateString,
-ToLongTimeString, ToShortTimeString
+.ToString(<optional format>) (Default : 23/05/2015 09:33:12 AM),
+ToLongDateString (Saturday, 23 May 2015), 
+ToShortDateString (23/05/2015),
+ToLongTimeString (09:33:12 AM), ToShortTimeString (09:33 AM)
 
 - TimeSpan
-For specifying time span.
-subtracting 2 datetime obj returns timespan
+> Creating : 
+new TimeSpan(1,2,3)
+TimeSpan.From<>(1) : Hours, Minutes
+Subtracting 2 datetime obj
+> Properties
 timeSpan.Minutes returns minute component only.
 timeSpan.TotalMinutes returns include sum of minutes in hours, days etc components also.
+> Add
 TimeSpan obj is immutable.
-Adding timepan using only .Add method and it returns new TimeSpan obj.
-Similary .Subtract method.
-Converting to string : ToString method
-Parsing from string : .Parse method
+Adding timepan using .Add(timeSpanObj) it returns new TimeSpan obj.
+Similary .Subtract(timeSpanObj) method.
+> Convert
+Converting to string : ToString() method
+Parsing from string : .Parse(str) method
 
 7. Working with Text
 - Strings
