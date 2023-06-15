@@ -24,7 +24,8 @@ to put an object in an early state.
 has same name as class name.
 doesn't have return type.
 Overloading : same name methods, with different parms taking signature.
-Executing other constructor : public Customer(int id) : this() {}
+Executing other constructor : public Customer(int id) : this([id]) {}
+optional id in this(..)
 
 - Object Initializers
 Initializing without constructors
@@ -36,14 +37,16 @@ Signature of Methods : Name of method, Type and number of parameters.
 Method overloading : same method name, but different signatures.
 Params modifier : passing varying no of parameters,
     public void func(params int[] arrayList)
-Ref modifier : when we want reference to be passed instead of value, so editing of variable in function will result into modification of passed value outside function.
+Ref modifier : when we want reference to be passed instead of value, so editing of 
+variable in function will result into modification of passed value outside function.
     public void func(ref int a) {}
     func(ref b);
 Out modifier : similar to ref, but requires setting/change of value in the function.
 
 - Fields
 Initialization : fields independent on input can be initialized outside constructor in field declaration.
-Read-only fields : fields can only be initialized/declared in constructor or field declaration. public readonly List<> list = new List<>();
+Read-only fields : fields can only be initialized/declared in constructor or field declaration. 
+public readonly List<> list = new List<>();
 
 - Access modifiers
 Public, Private, Protected, Internal, Protected Internal
