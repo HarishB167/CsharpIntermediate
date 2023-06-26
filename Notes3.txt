@@ -4,6 +4,8 @@ using System.Collections.Generic
 
 - Creating generic 
 public class GenericList<T> {}
+public void Add(T value) {}
+public T this[int index] {}
 
 - Multiple generic params :
 dictionary -> public class GenDictionary<TKey, TValue> {}
@@ -12,17 +14,17 @@ dictionary -> public class GenDictionary<TKey, TValue> {}
 public T Max<T>(T a, T b) { return someTVal; }
 
 - Constraints :
-on method -> public T Max<T>(T a, Tb) where T : IComparable { ... }
+on method -> public T Max<T>(T a, Tb) where T : IComparable, IOther { ... }
 on class -> public class SomeClass<T> where T : IComparable {}
 
 - 5 Types of Constraints :
 IComparable : interface constraint
-SampleClass : T should be SampleClass class or it's subclasses
-struct : T should be value type
-class : T should be reference type
-new() : T is an object with default constructor
+SampleClass : T should be SampleClass class or it's child
+struct : for T should be value type
+class : for T should be reference type
+new() : for T is an object with default constructor
 
-- default() operator : for getting default value for T in generics.
+- default() operator : for getting default value for a type (int : 0, string: "" etc).
 
 
 2. Delegates
