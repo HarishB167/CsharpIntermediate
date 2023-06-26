@@ -118,43 +118,48 @@ Publisher don't know about existence of subscribers, it knows only about event h
 
 - Making a publisher
 1) Define a delegate
+* Determines shape/signature of method in subscriber.
 public delegate void <EventName>EventHandler(object source, EventArgs args);
+public delegate void VideoEncodedEventHandler(object source, EventArgs args);
 2) Define an event based on that delegate.
 public event <EventName>EventHandler <EventName>;
+public event VideoEncodedEventHandler VideoEncoded;
 3) Raise the event
 defining method
-protected virtual void On<EventName>()
+protected virtual void OnVideoEncoded()
 {
-    if (<EventName> != null) <EventName>(this, EventArgs.Empty);
+    if (VideoEncoded != null)  // Checking if there are any subscribers.
+        VideoEncoded(this, EventArgs.Empty);
 }
-using to raise event in any method : On<EventName>();
+* Raise event in a method : OnVideoEncoded();
 
 - Subscribing to event
 In subscriber create method of delegate's signature as
-public void On<EventName>(object source, EventArgs e)
+public void OnVideoEncoded(object source, EventArgs e)
 {...code to execute...}
 In main method :
-publisherInstance.<EventName> += subscriberInstance.On<EventName>;
+publisherObj.VideoEncoded += subscriberObj.OnVideoEncoded;
 
 - Custom EventArgs
-Create new class <Name>EventArgs which inherits EventArgs class
-then add custom fields.
-In publisher change same at :
-delegate declaration
-raise event method -> accept any params, pass it as 
-<EventName>(this, new <Name>EventArgs() { Var = arg, ... })
-During calling of this pass the params -> On<EventName>(vars,...);
-In subscribers -> change EventArgs to <Name>EventArgs.
+* Create new class VideoEventArgs which inherits EventArgs class
+Fields : prop Video Video;
+* In publisher change same as :
+public delegate void VideoEncodedEventHandler(object source, VideoEventArgs args);
+protected virtual void OnVideEncoded(Video video)
+{..VideoEncoded(this, new VideoEventArgs() { Video = video })..}
+* In Encode method, where event is raised
+OnVideoEncoded(video)
+* In subscribers -> change EventArgs to VideoEventArgs.
 
-- Using EventHandler delegate class or generic from .NET
-Don't need to declare delegates in publisher
-2 forms
+- Using EventHandler delegate type from .NET
+* Don't need to declare delegates in publisher
+* 2 forms
 EventHandler -> without args
 EventHandler<TEventArgs>
-Creating event :
-public event EventHandler<MyEventArgs> MyEventName;
-Here EventHandler<MyEventArgs> is equivalent to
-public delegate void AnotherDelegateEventHandler(object source, MyEventArgs args);
+* Creating event :
+public event EventHandler<VideoEventArgs> MyEventName;
+Here EventHandler<VideoEventArgs> is equivalent to
+public delegate void VideoEncodedEventHandler(object source, VideoEventArgs args);
 
 
 5. Extension Methods
