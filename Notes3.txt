@@ -93,6 +93,8 @@ Func<int, int> square = number => number * number;
 is a Delegate which points to a method
 which gets a item,
 returns boolean based on condition.
+* Using
+books.FindAll(book => book.Price < 10)
 
 - Find methods on generic lists : uses predicate functions
 
