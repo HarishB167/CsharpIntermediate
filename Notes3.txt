@@ -163,21 +163,26 @@ public delegate void VideoEncodedEventHandler(object source, VideoEventArgs args
 
 
 5. Extension Methods
-Allows us to add methods to an existing class without
-changing its source code,
-creating child class.
+* Allows us to 
+add methods to an existing class 
+without changing its source code or creating child class.
 (e.g. - for sealed classes)
-Create static class named <ClassToExtend>Extensions
-Inside it create static methods as
+* Create static class named <ClassToExtend>Extensions
+public static class StringExtensions
+* Create static method
 public static <ReturnType> <MethodName>(this <ClassToExtend> varName, ...) {}
-
-Class storing extension methods should be in scope (same namespace) or import it.
-
-Trick : name the namespace of this static class containing extension methods same as namespaces in which main class is defined.
-
-Trouble of extension methods : instance method are prefered from extension methods. So, update having instance method can prevent extension method.
-
-Suggestion : Change source code of original class, otherwise create child from this class or lastly use extension methods.
+public static string Shorten(this String str, int numberOfWords)
+{..do shortening of str and return it..}
+* Class storing extension methods should be in scope (same namespace) or import it.
+* Trick : 
+Store extension method class in same namespace which it is extending
+E.g. -> System namespace for StringExtensions
+> Trouble :
+If framework update adds shorten method on String, then extension method defined will not used.
+* Suggestion
+Change source code of original class
+Create child from class and add method
+Lastly use extension methods.
 
 
 6. LINQ
