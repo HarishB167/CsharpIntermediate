@@ -28,43 +28,43 @@ new() : for T is an object with default constructor
 
 
 2. Delegates
-Object -> knows how to call a method or group of methods.
+Is a object knows how to call a method or group of methods.
 A reference to a function.
 
 Why : Designing extensible and flexible applicaitons (frameworks)
 
-- Define delegate
-In class,
-if 'void func(string var)' is signature of function.
-then -> public void DelegeteName(string var1);
-
-- Using delegate
-In function where all methods will be used
-public void Process(..., DelegateName givenDelgate)
-{
-    givenDelegate(var);
-}
-In main function :
+- Custom delegate
+* If signature of function is : void func(string var)
+* In class define
+public delegate void DelegateName(string var1);
+public void Process(..., DelegateName delegate)
+{ delegate(var) }
+* In main
 SomeClass.DelegateName handler = someMethod;
-handler += someOtherMethod;
-Process(..., handler);
+handler += someOtherMethod // Add another function to execute
+someClsObj.Process(..., handler)
 
-- Info
-delegates created using delegate keyword are classes derived from System.MulticastDelegate.
-MulticastDelegate is derived from System.Delegate class.
-Delegate class has 2 public properties :
-Method -> method delegate is pointing to
-Target -> Class that hold that method
-In non-public members :
-_invocationList -> contains list of methods given to delegate.
+- Inbuild Delegates
+* Comes with .NET
+* Using System.Action and System.Func
+* Points to method that returns value.
+* Action<>  :
+can take upto 1-16 params
+* Func<[..., ] out TResult> :
+can take upto 1-17 params including 1 TResult
+* Using
+public void Process(..., Action<Photo> handler) {..}
+In main : Action<Photo> handler = someMethod
 
-- Delegates coming with .NET
-System.Action and System.Func
-Action<>  :
-can take upto 16 params
-Func<> :
-it points to method that returns value.
-can take upto 16 params
+- Inspecting handler variable
+* delegates created using delegate keyword inherits from System.MulticastDelegate class.
+* MulticastDelegate is derived from System.Delegate class.
+* Delegate class as 2 props
+Method : method delegate is pointing to
+Target : Class that hold that method
+* MulticastDelegate has non-public member
+_invocationList : list of methods given to delegate.
+Allows multiple function pointers
 
 - Use Delegates over Interface
 Eventing design pattern is used.
