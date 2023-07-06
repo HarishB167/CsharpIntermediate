@@ -338,11 +338,20 @@ Traditional approches : multi-threading, callbacks.
 New approach in NET4.5 : Task based - Async Await
 
 - Writing Async method
-Decorated with async keyword -> public async
-Return type is Task object -> Task for void and Task<TYPE> for returning
-Naming method -> MyMethodAsync
-Call other async method -> prepend await to other async method call, it makes thread to return control to our method caller.
+* Decorated with async keyword -> public async
+* Return type is Task object -> Task for void and Task<TYPE> for returning
+* Naming method -> MyMethodAsync
+* Call other async method 
+prepend await to other async method call, it makes thread to return control to our method caller.
+* Using
+public async Task DoSomethingAsync(...) { await otherTaskAsync();}
+public async Task<string> DoSomethingAsync
+* await is used only in async method
 
+- Awaiting later
+var someTask = DoAsync()
+showMsg("Waiting..")
+var result = await someTask;
 
 ---- Next Step ----
 Fundamentals :
