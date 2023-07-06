@@ -262,27 +262,37 @@ Dynamic lang -> at run-time
 
 - Benefits
 Static lang -> early feedback (compile-time)
-Dynamic lang -> easier and faster to code
+Dynamic lang -> easier and faster to code (But requires more unit tests)
 
 - C# History
-Started as static language.
-.NET 4 added dynamic capability, to improve interoperability with
+* Started as static language.
+* .NET 4 added dynamic capability, to improve interoperability with
 COM (writing office applications)
 and Dynamic languages (IronPython).
 
 - Reflection
-it is used when dynamic is not used.
-Inspect metadata about a type, and access properties and methods.
+* it is used when dynamic is not used.
+* Inspect metadata about a type, and access properties and methods.
+* Using
+object obj = "Scorpio";
+> Calling GetHashCode()
+var methodInfo = obj.GetType().GetMethod("GetHashCode");
+methodInfo.Invoke([args, ..]);
 
 - Using dynamics
-dynamic keyword
+* dynamic keyword
 dynamic obj = "value";
 obj.SomeMethod();
-In .Net v4 DLR (dynamic language runtime) was added over CLR.
-When we use dynamic value in expression, 
+* In .Net v4 -> DLR (dynamic language runtime) was added over CLR.
+* When we use dynamic value in expression, 
 then expression becomes dynamic.
+var c = dynamicVarA + dynamicVarB;
 
-- Casting : is implicit.
+- Casting : 
+* If implicilty convertible
+then no need casting.
+dynamic d = 5;
+long l = d;
 
 
 9. Exception Handling
