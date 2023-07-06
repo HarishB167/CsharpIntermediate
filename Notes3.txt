@@ -196,27 +196,37 @@ Capability to query objects natively
 3) to XML : XML
 4) to Data Sets : ADO.NET Data Sets
 
-Linq Extension Methods :
-Where - for filtering
-OrderBy - sorting collections
-Select - projects each element of a sequence into a new form.
+- Linq Extension Methods :
+* Where - for filtering
+cheapBooks = books.Where(book => book.price < 10)
+JS -> arr.filter()
+* OrderBy - sorting collections
+OrderBy(book => book.Title)
+JS -> arr.sort()
+* Select - projects each element of a sequence into a new form.
 Object conversion, Selecting a particular field of object.
-Single - Returns 1 matched element otherwise throws exception.
-SingleOrDefault - same as Single but otherwise returns default value for type.
-First - get first object from collection with optional filter.
+Select(book => book.Title)
+JS -> arr.map()
+* Single - Same as Where, only 1 matched element should exist otherwise throws exception.
+SingleOrDefault - same as Single, but returns default value when not exist,
+and throws exception when multiple items exist.
+* First - get first object from collection with optional filter.
+.First([b => b.Price < 10])
 FirstOrDefault, Last, LastOrDefault
-(For Pagination :-)
-Skip - skipps given no of elements and returns remaining
-Take - returns specified no of elements
-(For aggregating :-)
-Count, Max, Min, Sum, Average
+* For Pagination
+Skip(count) - skipps given no of elements and returns remaining
+Take(count) - returns specified no of elements
+books.Skip(2).Take(3)
+* For aggregating
+Count(), 
+> Pass delegate : b => b.Price
+Max(..), Min(..), Sum(..), Average(..)
 
-Method chaining : Where(...).OrderBy(...);
+- Method chaining : Where(...).OrderBy(...);
 
-Linq Query Operators :
-Always starts from 'from' and ends at 'select'
-var books = 
-          from b in books
+- Linq Query Operators :
+Always starts from 'from' and ends with 'select'
+var books = from b in books
           where b.Price < 10
           orderby b.Title
           select b;
