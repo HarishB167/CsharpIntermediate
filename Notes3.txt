@@ -309,12 +309,16 @@ InnerException - exception stored/wrapped in another exception.
 - Multiple catch blocks : most specific to most generic.
 
 - finally block : 
-It runs irrespective of exception.
-Unmanaged resources by CLR : 
+* It runs irrespective of exception.
+* Unmanaged resources by CLR : 
 file handles, database connections, network connections, 
 graphic handles.
-For cleanup of unmanaged resources.
-Class using unmanaged resources should implement IDisposable.
+* For cleanup of unmanaged resources.
+* Class using unmanaged resources should implement IDisposable.
+
+- using keyword instead of finally
+using (var streamReader = new StreamReader(..))
+{ .. }
 
 - Custom Exceptions
 create new class <My>Exception extending Exception
